@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Network Troubleshooting Form</title>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body>
+    <script src="script.js"></script>
+  <h1>Network Troubleshooting Form</h1>
+  <form id="troubleshootingForm">
+    <h2>Fault Description (Summary)</h2>
+    <hr>
+    <textarea id="faultDescription" rows="4" cols="50"></textarea>
+    
+    <h2>General Info</h2>
+    <hr>
+    <p>AVC ID:</p>
+    <input type="text" id="avcId">
+    
+    <p>NTD ID (sticker on NTD):</p>
+    <input type="text" id="ntdId">
+    
+    <p>Customer has agreed to leave NTD and CPE powered on:</p>
+    <input type="radio" name="powerAgreement" value="Yes">Yes
+    <input type="radio" name="powerAgreement" value="No">No
+    
+     
+    <h2>Dropouts</h2>
+    <hr>
+    <p>When did dropouts begin?:</p>
+    <input type="text" id="dropoutStart">
+    
+    <p>How often does it occur?:</p>
+    <input type="text" id="dropoutFrequency">
+
+    <p>How long do the drops typically last?:</p>
+    <input type="text" id="dropoutDuration">
+ 
+    <p>If the user is still offline during the call, what is the current status and duration of their DHCP lease?</p>
+    <input type="radio" name="DHCP" value="Active">Yes
+    <input type="radio" name="DHCP" value="Not Active">No
+
+    <label>Has the WNTD been power cycled since the drops were first noticed?</label>
+    <input type="radio" name="wntdPowercycled" value="Yes">Yes
+    <input type="radio" name="wntdPowercycled" value="No">No<br>
+
+    <label>If yes, does power cycling the WNTD typically resolve the issue?</label>
+    <input type="radio" name="wntdResolution" value="Yes">Yes
+    <input type="radio" name="wntdResolution" value="No">No<br>
+
+    <label>Has the CPE been power cycled since the drops were first noticed?</label>
+    <input type="radio" name="cpePowercycled" value="Yes">Yes
+    <input type="radio" name="cpePowercycled" value="No">No<br>
+
+    <label>If yes, does power cycling the CPE typically resolve the issue?</label>
+    <input type="radio" name="cpeResolution" value="Yes">Yes
+    <input type="radio" name="cpeResolution" value="No">No<br>
+
+    
+  <fieldset>
+            <legend>Dropout 1</legend>
+            <label for="noticed_1">Noticed:</label>
+            <input type="text" id="noticed_1" name="noticed_1"><br><br>
+            <label for="duration_1">Duration / Until:</label>
+            <input type="text" id="duration_1" name="duration_1"><br><br>
+            <label for="light_status_1">Light status:</label>
+            <input type="text" id="light_status_1" name="light_status_1"><br><br>
+        </fieldset>
+
+     <fieldset>
+            <legend>Dropout 2</legend>
+            <label for="noticed_2">Noticed:</label>
+            <input type="text" id="noticed_2" name="noticed_2"><br><br>
+            <label for="duration_2">Duration / Until:</label>
+            <input type="text" id="duration_2" name="duration_2"><br><br>
+            <label for="light_status_2">Light status:</label>
+            <input type="text" id="light_status_2" name="light_status_2"><br><br>
+        </fieldset>
+     
+
+      
+      
+
+
+
+
+    <hr>
+
+    <h2>Customer Availability</h2>
+    <p>What days between Monday and Friday are most suitable if we need to arrange for a site visit?</p>
+    <select id="Availability" name="Availability">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+    </select>
+
+    <p> Mornings (8am-12pm) or Afternoons (1pm-5pm)?: </p>
+    <select id="TimeAvailable" name="TimeAvailable">
+        <option value="Mornings">8am-12pm</option>
+        <option value="Afternoon">1PM-5PM</option>
+        <option value="Anytime">Anytime</option>
+    </select>
+
+    <h2>Contact Information</h2>
+    <fieldset>
+      <legend>Primary Contact</legend>
+      <p>Contact name:</p>
+      <input type="text" id="primaryName" name="primaryName" required>
+      <p>Contact number:</p>
+        <input type="text" id="primaryNumber" name="primaryNumber">
+      <p>Email</p>
+      <input type="text" id="emailContact" name="emailContact" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Secondary Contact (Optional)</legend>
+      <p>Contact name:</p>
+      <input type="text" id="secondaryName" name="secondaryName">
+      <p>Contact number:</p>
+        <input type="text" id="primaryNumber" name="primaryNumber">
+      <p>Email</p>
+      <input type="text" id="emailContact" name="emialContact">
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferred Method of Contact</legend>
+      <label><input type="radio" name="preferredContact" value="sms" required>SMS</label><br>
+      <label><input type="radio" name="preferredContact" value="phone" required>Phone</label><br>
+      <label><input type="radio" name="preferredContact" value="email" required>Email</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Appointment Information</legend>
+      <label><input type="checkbox" name="presenceAgreement" required>Customer is aware that a contact over the age of 18 must be present at the site during an appointment</label>
+    </fieldset>
+
+     <hr>
+
+
+    <h1>Service Troubleshooting</h1>
+    <form>
+        <label for="wntd-lights">WNTD Lights:</label>
+        <select id="wntd-lights" name="wntd-lights">
+            <option value="power-off">Power: OFF</option>
+            <option value="power-green">Power: GREEN SOLID</option>
+        </select>
+        <br>
+
+        <label for="status-lights">Status Lights:</label>
+        <select id="status-lights" name="status-lights">
+            <option value="status-off">Status: OFF</option>
+            <option value="status-red">Status: RED SOLID</option>
+            <option value="status-amber">Status: AMBER FLASHING</option>
+            <option value="status-green-flashing">Status: GREEN FLASHING</option>
+            <option value="status-green-solid">Status: GREEN SOLID</option>
+        </select>
+        <br>
+
+        <label for="odu-lights">ODU Lights:</label>
+        <select id="odu-lights" name="odu-lights">
+            <option value="odu-off">ODU: OFF</option>
+            <option value="odu-red-flashing">ODU: RED FLASHING</option>
+            <option value="odu-red-solid">ODU: RED SOLID</option>
+            <option value="odu-green-flashing">ODU: GREEN FLASHING</option>
+            <option value="odu-green-solid">ODU: GREEN SOLID</option>
+        </select>
+        <br>
+
+        <label for="signal-strength">Signal Strength:</label>
+        <select id="signal-strength" name="signal-strength">
+            <option value="signal-red-solid">Signal Strength: RED SOLID</option>
+            <option value="signal-yellow-solid">Signal Strength: YELLOW SOLID</option>
+            <option value="signal-green-solid">Signal Strength: GREEN SOLID</option>
+        </select>
+        <br>
+
+ <label for="uniDPortNumber">Select UNI-D Port Number:</label>
+    <select id="uniDPortNumber" name="uniDPortNumber">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+
+    <form action="submit_form.php" method="post">
+        <h2>UNI-D Port lights</h2>
+        <p>Green:
+            <input type="radio" name="green_light" value="solid"> Solid
+            <input type="radio" name="green_light" value="flashing"> Flashing
+            <input type="radio" name="green_light" value="off"> Off
+        </p>
+        <p>Orange:
+            <input type="radio" name="orange_light" value="solid"> Solid
+            <input type="radio" name="orange_light" value="flashing"> Flashing
+            <input type="radio" name="orange_light" value="off"> Off
+        </p>
+
+        <h2>Device Status</h2>
+        <p>Are all devices powered on and plugged in?
+            <input type="radio" name="devices_powered" value="yes"> Yes
+            <input type="radio" name="devices_powered" value="no"> No
+        </p>
+        <p>WNTD power cycled?
+            <input type="radio" name="wntd_power_cycled" value="yes"> Yes
+            <input type="radio" name="wntd_power_cycled" value="no"> No
+        </p>
+        <p>CPE power cycled?
+            <input type="radio" name="cpe_power_cycled" value="yes"> Yes
+            <input type="radio" name="cpe_power_cycled" value="no"> No
+        </p>
+        <p>Tested WNTD in another power point to fix AMBER FLASHING Status?
+            <input type="radio" name="tested_wntd" value="yes"> Yes
+            <input type="radio" name="tested_wntd" value="no"> No
+        </p>
+
+        <h2>Additional Information</h2>
+        <p>Recent Weather:
+            <input type="text" name="recent_weather">
+        </p>
+        <p>Line of sight reported clear?
+            <input type="radio" name="line_of_sight_clear" value="yes"> Yes
+            <input type="radio" name="line_of_sight_clear" value="no"> No
+        </p>
+        <p>Has the Diamond Antenna or other NBN equipment been damaged or knocked out of alignment?
+            <input type="radio" name="equipment_damage" value="yes"> Yes
+            <input type="radio" name="equipment_damage" value="no"> No
+        </p>
+        <p>If Yes, describe the damage:
+            <input type="text" name="damage_description">
+        </p>
+        
+        <h2>AVC Diagnostics and Loopback</h2>
+        <p>AVC Diagnostics Performed?
+            <input type="text" name="avc_diagnostics">
+        </p>
+        <p>Loopback:
+            <input type="radio" name="loopback_result" value="passed"> Passed
+            <input type="radio" name="loopback_result" value="failed"> Failed
+        </p>
+
+        <h2>Service Health Summary (HRI)</h2>
+        <p>If the W-NTD ODU light is still OFF/RED or Loopback fails, stop here.</p>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+        <!-- Add more dropdowns and buttons for other information here -->
+
+        <label for="recent-weather">Recent Weather:</label>
+        <input type="text" id="recent-weather" name="recent-weather">
+        <br>
+
+        <label for="line-of-sight">Line of Sight Clear?</label>
+        <select id="line-of-sight" name="line-of-sight">
+            <option value="los-yes">Yes</option>
+            <option value="los-no">No</option>
+        </select>
+        <br>
+
+
+ <label for="equipment-damage">Equipment Damage:</label>
+        <select id="equipment-damage" name="equipment-damage">
+            <option value="damage-yes">Yes</option>
+            <option value="damage-no">No</option>
+        </select>
+        <br>
+
+        <div id="damage-description" style="display: none;">
+            <label for="damage-type">Type of Damage:</label>
+            <select id="damage-type" name="damage-type">
+                <option value="antenna">Diamond Antenna</option>
+                <option value="odu">ODU</option>
+                <option value="other">Other NBN Equipment</option>
+            </select>
+            <br>
+        </div>
+     <h1>NBN Equipment Status</h1>
+  <form>
+    <label for="devices">Are all devices powered on and plugged in?</label>
+    <select id="devices" name="devices">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="wntd_power_cycle">WNTD power cycled?</label>
+    <select id="wntd_power_cycle" name="wntd_power_cycle">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="cpe_power_cycle">CPE power cycled?</label>
+    <select id="cpe_power_cycle" name="cpe_power_cycle">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="wntd_tested_another_point">Tested WNTD in another power point?</label>
+    <select id="wntd_tested_another_point" name="wntd_tested_another_point">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="amber_flashing_fix">Can fix AMBER FLASHING Status?</label>
+    <select id="amber_flashing_fix" name="amber_flashing_fix">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="recent_weather">Recent Weather:</label>
+    <input type="text" id="recent_weather" name="recent_weather">
+
+    <label for="line_of_sight">Line of sight reported clear?</label>
+    <select id="line_of_sight" name="line_of_sight">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="equipment_damage">Has the Diamond Antenna or other NBN equipment been damaged or knocked out of alignment?</label>
+    <select id="equipment_damage" name="equipment_damage">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="damage_description">If Yes, description of damage:</label>
+    <input type="text" id="damage_description" name="damage_description">
+
+    <label for="avc_diagnostics">AVC Diagnostics Performed?</label>
+    <select id="avc_diagnostics" name="avc_diagnostics">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="loopback_test">Loopback Test:</label>
+    <select id="loopback_test" name="loopback_test">
+      <option value="passed">Passed</option>
+      <option value="failed">Failed</option>
+    </select>
+
+    <label for="service_health_summary">Service Health Summary (HRI):</label>
+    <input type="text" id="service_health_summary" name="service_health_summary">
+
+    <p><strong>STOP HERE IF THE W-NTD ODU LIGHT IS STILL OFF/RED OR LOOPBACK FAILS</strong></p>
+
+       <h2>Device Information</h2>
+        <label for="uniDevice">Device left connected to UNI-D:</label>
+        <input type="text" id="uniDevice" name="uniDevice"><br><br>
+
+        <label for="macAddress">MAC Address:</label>
+        <input type="text" id="macAddress" name="macAddress"><br><br>
+
+        <label for="routerBrand">Router Brand & Model Number:</label>
+        <input type="text" id="routerBrand" name="routerBrand"><br><br>
+
+        <label for="skyMeshSupplied">SkyMesh Supplied?:</label>
+        <input type="radio" id="skyMeshYes" name="skyMeshSupplied" value="Yes">
+        <label for="skyMeshYes">Yes</label>
+        <input type="radio" id="skyMeshNo" name="skyMeshSupplied" value="No">
+        <label for="skyMeshNo">No</label><br><br>
+
+        <h2>Devices Tested</h2>
+        <label for="device1Name">Device Name:</label>
+        <input type="text" id="device1Name" name="device1Name">
+        <label for="device1Mac">MAC Address:</label>
+        <input type="text" id="device1Mac" name="device1Mac"><br><br>
+
+        <label for="device2Name">Device Name:</label>
+        <input type="text" id="device2Name" name="device2Name">
+        <label for="device2Mac">MAC Address:</label>
+        <input type="text" id="device2Mac" name="device2Mac"><br><br>
+
+        <h2>Testing Information</h2>
+        <label for="testedWithPatchCable">Tested with the 2nd patch cable?:</label>
+        <input type="radio" id="testedWithPatchCableYes" name="testedWithPatchCable" value="Yes">
+        <label for="testedWithPatchCableYes">Yes</label>
+        <input type="radio" id="testedWithPatchCableNo" name="testedWithPatchCable" value="No">
+        <label for="testedWithPatchCableNo">No</label><br><br>
+
+        <label for="arpPingResponse">Does the CPE respond to ARP ping?:</label>
+        <input type="radio" id="arpPingResponseYes" name="arpPingResponse" value="Yes">
+        <label for="arpPingResponseYes">Yes</label>
+        <input type="radio" id="arpPingResponseNo" name="arpPingResponse" value="No">
+        <label for="arpPingResponseNo">No</label><br><br>
+
+        <label for="dhcpConfigVerified">DHCP Configuration verified for each device used for direct-to-NTD testing?:</label>
+        <input type="radio" id="dhcpConfigVerifiedYes" name="dhcpConfigVerified" value="Yes">
+        <label for="dhcpConfigVerifiedYes">Yes</label>
+        <input type="radio" id="dhcpConfigVerifiedNo" name="dhcpConfigVerified" value="No">
+        <label for="dhcpConfigVerifiedNo">No</label><br><br>
+
+        <label for="ipAddressCPE">IP Address CPE getting while directly connected:</label>
+        <input type="text" id="ipAddressCPE" name="ipAddressCPE"><br><br>
+
+        <label for="tcpIpReset">If the customer is getting a local only IP address, have you tried doing a TCP/IP reset (netsh int ip reset)?:</label>
+        <input type="radio" id="tcpIpResetYes" name="tcpIpReset" value="Yes">
+        <label for="tcpIpResetYes">Yes</label>
+        <input type="radio" id="tcpIpResetNo" name="tcpIpReset" value="No">
+        <label for="tcpIpResetNo">No</label><br><br>
+
+        <h2>ARP Entries</h2>
+        <label for="arpEntries">ARP Entries when directly connected to NTD:</label>
+        <textarea id="arpEntries" name="arpEntries" rows="4" cols="50"></textarea><br><br>
+
+
+        <script>
+        const equipmentDamageSelect = document.getElementById('equipment-damage');
+        const damageDescriptionDiv = document.getElementById('damage-description');
+        const damageTypeSelect = document.getElementById('damage-type');
+
+        equipmentDamageSelect.addEventListener('change', function () {
+            if (equipmentDamageSelect.value === 'damage-yes') {
+                damageDescriptionDiv.style.display = 'block';
+            } else {
+                damageDescriptionDiv.style.display = 'none';
+            }
+        });
+    </script>
+
+    <hr>
+
+    <h2>Light Status</h2>
+    <form id="lightForm">
+      <label for="color">What is the color of the light?</label>
+      <select id="color" name="color">
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="white">White</option>
+        <option value="blue">Blue</option>
+      </select>
+      <br>
+      <div id="flashingDiv" style="display: none;">
+        <label for="flashing">Is the white light flashing?</label>
+        <input type="radio" id="flashingYes" name="flashing" value="yes">
+        <label for="flashingYes">Yes</label>
+        <input type="radio" id="flashingNo" name="flashing" value="no">
+        <label for="flashingNo">No</label>
+      </div>
+    </form>
+
+ <h2>Step 1: Check Default Gateway</h2>
+        <label for="default_gateway">Default Gateway IP:</label>
+        <input type="text" id="default_gateway" name="default_gateway"><br>
+        <label for="can_ping_gateway">Can you ping Default Gateway?:</label>
+        <input type="radio" id="ping_gateway_yes" name="can_ping_gateway" value="Yes">
+        <label for="ping_gateway_yes">Yes</label>
+        <input type="radio" id="ping_gateway_no" name="can_ping_gateway" value="No">
+        <label for="ping_gateway_no">No</label><br>
+
+        <h2>Step 2: Ping DNS Server</h2>
+        <label for="can_ping_dns">Can you ping DNS server (103.206.238.100)?:</label>
+        <input type="radio" id="ping_dns_yes" name="can_ping_dns" value="Yes">
+        <label for="ping_dns_yes">Yes</label>
+        <input type="radio" id="ping_dns_no" name="can_ping_dns" value="No">
+        <label for="ping_dns_no">No</label><br>
+        
+        <!-- Include additional steps and questions here -->
+        
+        <h2>Step 3: Ping Google.com</h2>
+        <label for="can_ping_google">Can you ping google.com?:</label>
+        <input type="radio" id="ping_google_yes" name="can_ping_google" value="Yes">
+        <label for="ping_google_yes">Yes</label>
+        <input type="radio" id="ping_google_no" name="can_ping_google" value="No">
+        <label for="ping_google_no">No</label><br>
+        
+        <!-- Include additional steps and questions here -->
+
+        <h2>Step 4: NSLookup</h2>
+        <label for="nslookup_google">Can you nslookup www.google.com?:</label>
+        <input type="radio" id="nslookup_google_yes" name="nslookup_google" value="Yes">
+        <label for="nslookup_google_yes">Yes</label>
+        <input type="radio" id="nslookup_google_no" name="nslookup_google" value="No">
+        <label for="nslookup_google_no">No</label><br>
+        
+        <label for="nslookup_skymesh">Can you nslookup www.skymesh.net.au?:</label>
+        <input type="radio" id="nslookup_skymesh_yes" name="nslookup_skymesh" value="Yes">
+        <label for="nslookup_skymesh_yes">Yes</label>
+        <input type="radio" id="nslookup_skymesh_no" name="nslookup_skymesh" value="No">
+        <label for="nslookup_skymesh_no">No</label><br>
+
+
+    <hr>
+
+    <button type="button" onclick="generateTextDocument()">Generate Text Document</button>
+      
+
+
+  </form>
+</body>
+</html>
